@@ -1,0 +1,149 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Standard-Briefvorlage(Formell) des Vereins The Oh' Jesses e.V. 
+%
+% LaTeX Template
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%-------------------------------------------
+%			Paketeinbindungen
+%-------------------------------------------
+
+\documentclass[11pt,a4paper]{letter}
+
+\usepackage{graphicx} 
+\usepackage{microtype} 
+\usepackage{gfsdidot}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage[ngerman]{babel}
+
+% Strich oben definieren
+\makeatletter
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+
+%-------------------------------------------
+%			Dokumenteigenschaften
+%-------------------------------------------
+
+\textwidth 6.75in
+\textheight 9.25in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\topmargin -1in
+\longindentation 0.50\textwidth
+\parindent 0.4in
+
+%-------------------------------------------
+%			Deklaration Absender
+%-------------------------------------------
+
+\def\Who{Vorname Nachname} % Dein Name
+\def\What{, Vorstand} % Dein Titel
+\def\Where{The Oh' Jesses e.V.} % Vereinsname
+\def\Address{Techstraße, 13} % Hausnummer & Straße
+\def\CityZip{12345, Musterdorf} % Stadt, PLZ
+\def\Email{E-mail: TheOhJesses@GMail.com} % Vereinsmailadresse
+\def\TEL{Tel.: (02345) 12345} % Telefonnummer
+\def\URL{Web: http://www.TheOhJesses.de} % Vereinswebseite
+
+%-------------------------------------------
+%			Deklaration Kopf und Absender
+%-------------------------------------------
+
+\address{
+\includegraphics[width=1in]{bilder/theohjesses_stempel.jpg} % Plaziert das Logo
+\hspace{5.1in} % Position definieren
+\vskip -1.07in~\\ % Position des Textes in relation auf das Logo
+\Large\hspace{1.5in}Musikverein \hfill ~\\[0.05in] % Erste Zeile neben dem Logo
+\hspace{1.5in}The Oh' Jesses \hfill \normalsize % Zweite Zeile neben dem Logo
+\makebox[0ex][r]{\bf \Who \What }\hspace{0.08in} % Name und Titel einfügen
+~\\[-0.11in] % Rand anpassen
+\hspace{1.5in}\vhrulefill{1pt} \\ % Grafische Anpassungen
+\hspace{\fill}\parbox[t]{2.85in}{ % Box erstellen um die Definitionen einheitlich zu gestalten
+\footnotesize % Kleinere Schriftart für die Details
+\Who \\ \em % Dein Name
+\Where\\ % Dein Titel
+\Address\\ % Deine Adresse
+\CityZip\\ % Stadt, PLZ
+\TEL\\ % Telefonnummer
+\Email\\ % Mailadresse
+\URL % Webseite
+}
+\hspace{-1.4in} % Blockposition
+\vspace{-1in} % unkompakteres Aussehen
+}
+
+%-------------------------------------------
+%			Deklaration den Empfänger
+%-------------------------------------------
+
+\def\opening#1{\thispagestyle{empty}
+{\centering\fromaddress \vspace{0.6in} \\ % Kopfzeile und Absender drucken
+\hspace*{\longindentation}\today\hspace*{\fill}\par} % Aktuelles Datum ausgeben
+{\raggedright \toname \\ \toaddress \par} % Empfängerdaten
+\vspace{0.4in} % Platz lassen
+\noindent #1 % Anfangspart setzen
+% Für eine Fußnote müssen diese 4 Zeilen einkommentiert werden
+%\def\thefootnote{}
+%\def\footnoterule{\hrule}
+%\footnotetext{\hspace*{\fill}{\footnotesize\em Footnote text}}
+%\def\thefootnote{\arabic{footnote}}
+}
+
+%-------------------------------------------
+%			Deklaration Unterschriftenteil
+%-------------------------------------------
+
+\signature{\Who \What} % Die Unterschrift setzt sich aus deinem Namen und Titel zusammen
+
+\long\def\closing#1{
+\vspace{0.1in} % Platz lassen
+\noindent 
+\hspace*{\longindentation} % Unterschrift rechts setzen
+\parbox{\indentedwidth}{\raggedright
+#1 
+\vskip 0.65in % Platz lassen
+\fromsig}} % Name und Titel drucken
+
+
+
+%-------------------------------------------
+
+
+
+\begin{document}
+
+%-------------------------------------------
+%			Deklaration Empfänger
+%-------------------------------------------
+
+\begin{letter}
+{Herr Mustermann\\
+Musterfirma\\
+Abteilung IT + Netzwerke\\
+Musterstraße 12\\
+123456, Musterstadt, Deutschland\\
+}
+
+%-------------------------------------------
+%			Inhalt des Schreibens
+%-------------------------------------------
+
+\opening{Sehr geehrter Herr Mustermann,}
+
+\input{text/inhalt.tex}
+
+\closing{mit freundlichen Grüßen,}
+
+%-------------------------------------------
+
+\end{letter}
+\end{document}
